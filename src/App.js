@@ -1,10 +1,15 @@
 import './App.css';
+import Header from './Header';
+import BookingForm from './BookingForm';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <Header />
+      <main>
+        <BookingForm />
+      </main>
+    </>
   );
 }
 
