@@ -1,38 +1,160 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #495E57;
+  color: #333;
+}
+
+/* -------------- HEADER ----------------- */
+header {
+  background-color: white;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+header img {
+  height: 60px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #495e57;
+}
+
+nav a:hover {
+  color: #f4ce14;
+}
+
+/* ----------------- MAIN LAYOUT ------------------ */
+main {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+/* ---------------- FORM -------------------- */
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bookingForm label {
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.booking-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-family: 'Markazi Text', serif;
+}
+
+.booking-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.bookingForm input,
+.bookingForm select {
+  padding: 10px;
+  border: 1px solid #cbd1cc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/*.bookingForm input:user-invalid,
+.bookingForm select:user-invalid {
+  border-color: #d9534f;
+}
+
+.bookingForm input:invalid:focus,
+.bookingForm select:invalid:focus {
+  border-color: #d9534f;
+}*/
+
+/* -------------------- SUBMIT BUTTON --------------------- */
+.bookingForm button {
+  padding: 14px;
+  background: #f4ce14;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.bookingForm button:hover {
+  background: #e0bb0f;
+}
+
+/* --------------------- FOOTER ----------------------- */
+footer {
+  background-color: white;
+  padding: 30px 40px;
+  margin-top: 80px;
+  border-top: 1px solid #ddd;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+footer img {
+  height: 40px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+footer nav ul {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 25px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ---------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .booking-section {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  header img {
+    height: 50px;
+  }
+
+  nav ul {
+    gap: 15px;
   }
 }

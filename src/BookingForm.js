@@ -14,11 +14,14 @@ export default function BookingForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="bookingForm">
-            <h2>Reserve a Table</h2>
-            <lable>Name:</lable>
+        <section className="booking-section">
+            <form onSubmit={handleSubmit} className="bookingForm">
+            <h2 className="booking-title">Reserve a Table</h2>
+            <label>Name:</label>
             <input
+                id="name"
                 type="text"
+                placeholder="Enter your full name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -26,6 +29,7 @@ export default function BookingForm() {
 
             <label>Date:</label>
             <input
+                id="date"
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
@@ -33,7 +37,7 @@ export default function BookingForm() {
             />
 
             <label>Time:</label>
-            <select value={time} onChange={(e) => setTime(e.target.value)} required>
+            <select id="time" value={time} onChange={(e) => setTime(e.target.value)} required>
                 <option value="">Select Time</option>
                 <option>17:00</option>
                 <option>18:00</option>
@@ -44,6 +48,7 @@ export default function BookingForm() {
 
             <label>Number of guests:</label>
             <input
+                id="guests"
                 type="number"
                 min="1"
                 max="10"
@@ -53,6 +58,7 @@ export default function BookingForm() {
 
             <label>Occassion:</label>
             <select
+                id="occassion"
                 value={occassion}
                 onChange={(e) => setOccassion(e.target.value)}
             >
@@ -63,7 +69,8 @@ export default function BookingForm() {
 
             <button type="submit">Reserve</button>
 
-        </form>
+            </form>
+        </section>
     )
 }
 
