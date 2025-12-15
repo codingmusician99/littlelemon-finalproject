@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function BookingForm() {
+export default function BookingForm({bookings, setBookings, availableTimes, dispatch}) {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
@@ -9,7 +9,15 @@ export default function BookingForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Booking Data:", { name, date, time, guests, occassion});
+        const newBooking = {
+            name,
+            date,
+            time,
+            guests,
+            occassion,
+        };
+
+        setBookings([...bookings, newBooking]);
         alert("Table Reserved Successfully!");
     }
 
@@ -32,18 +40,16 @@ export default function BookingForm() {
                 id="date"
                 type="date"
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) => {setDate(e.target.value); dispatch({date: e.target.value});}}
                 required
             />
 
             <label>Time:</label>
             <select id="time" value={time} onChange={(e) => setTime(e.target.value)} required>
                 <option value="">Select Time</option>
-                <option>17:00</option>
-                <option>18:00</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
+                {availableTimes.map((t) => (
+                    <option key={t}>{t}</option>
+                ))}
             </select>
 
             <label>Number of guests:</label>

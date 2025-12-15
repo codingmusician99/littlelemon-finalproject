@@ -1,14 +1,17 @@
 import './App.css';
+//import { useState } from 'react';
 import Header from './Header';
-import BookingForm from './BookingForm';
+import BookingPage from './BookingPage';
+//import BookingForm from './BookingForm';
 import Footer from './Footer';
 
 function App() {
+ // const [bookings, setBookings] = useState([]);
   return (
     <>
       <Header />
       <main>
-        <BookingForm />
+        <BookingPage />
       </main>
       <Footer />
     </>
