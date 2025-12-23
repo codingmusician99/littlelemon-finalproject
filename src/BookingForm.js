@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function BookingForm({bookings, setBookings, availableTimes, dispatch}) {
+export default function BookingForm({bookings, setBookings, availableTimes, dispatch, submitForm}) {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
@@ -9,23 +9,21 @@ export default function BookingForm({bookings, setBookings, availableTimes, disp
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newBooking = {
+
+        submitForm({
             name,
             date,
             time,
             guests,
             occassion,
-        };
-
-        setBookings([...bookings, newBooking]);
-        alert("Table Reserved Successfully!");
-    }
+        });
+    };
 
     return (
         <section className="booking-section">
             <form onSubmit={handleSubmit} className="bookingForm">
             <h2 className="booking-title">Reserve a Table</h2>
-            <label>Name:</label>
+            <label htmlFor="name">Name:</label>
             <input
                 id="name"
                 type="text"
@@ -35,24 +33,24 @@ export default function BookingForm({bookings, setBookings, availableTimes, disp
                 required
             />
 
-            <label>Date:</label>
+            <label htmlFor="date">Date:</label>
             <input
                 id="date"
                 type="date"
                 value={date}
-                onChange={(e) => {setDate(e.target.value); dispatch({date: e.target.value});}}
+                onChange={(e) => {setDate(e.target.value); dispatch({type: "dateChange", date: e.target.value,});}}
                 required
             />
 
-            <label>Time:</label>
+            <label htmlFor="time">Time:</label>
             <select id="time" value={time} onChange={(e) => setTime(e.target.value)} required>
                 <option value="">Select Time</option>
                 {availableTimes.map((t) => (
-                    <option key={t}>{t}</option>
+                    <option key={t} value={t}>{t}</option>
                 ))}
             </select>
 
-            <label>Number of guests:</label>
+            <label htmlFor="guests">Number of guests:</label>
             <input
                 id="guests"
                 type="number"
@@ -60,23 +58,24 @@ export default function BookingForm({bookings, setBookings, availableTimes, disp
                 max="10"
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
+                required
             />
 
-            <label>Occassion:</label>
+            <label htmlFor="occassion">Occassion:</label>
             <select
                 id="occassion"
                 value={occassion}
                 onChange={(e) => setOccassion(e.target.value)}
             >
                 <option value="">None</option>
-                <option>Birthday</option>
-                <option>Anniversary</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
             </select>
 
             <button type="submit">Reserve</button>
 
             </form>
         </section>
-    )
+    );
 }
 

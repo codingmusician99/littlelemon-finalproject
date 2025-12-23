@@ -1,16 +1,22 @@
+import { fetchAPI, submitAPI } from "./api";
 import { useState, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
 
 const initializeTimes = () => {
-    return ["17:00", "18:00", "19:00", "20:00", "21:00"];
+    const today = new Date();
+    return fetchAPI(today);
 };
 
 const updateTimes = (state, action) => {
+    if (action.type === "dateChange") {
+        return fetchAPI(new Date(action.date));
+    }
     return state;
 };
 
-export default function BookingPage() {
-    const [bookings, setBookings] = useState([]);
+function BookingPage() {
+    const navigate = useNavigate();
 
     const [availableTimes, dispatch] = useReducer(
         updateTimes,
@@ -18,8 +24,20 @@ export default function BookingPage() {
         initializeTimes
     );
 
+    const submitForm = (formData) => {
+        if (submitAPI(formData)) {
+            navigate("/confirmed");
+        }
+    };
+
     return (
-    <BookingForm bookings={bookings} setBookings={setBookings} availableTimes={availableTimes} dispatch={dispatch}/>
+        <BookingForm
+            availableTimes={availableTimes}
+            dispatch={dispatch}
+            submitForm={submitForm}
+        />
     );
 }
+
+export default BookingPage;
 

@@ -47,6 +47,10 @@ main {
   padding: 20px;
 }
 
+.main-content {
+  padding-top: 20px;
+}
+
 /* ---------------- FORM -------------------- */
 .bookingForm {
   display: flex;
@@ -111,6 +115,36 @@ main {
 
 .bookingForm button:hover {
   background: #e0bb0f;
+}
+
+/* --------------------- CONFIRMED PAGE -------------------- */
+.confirmed-section {
+  min-height: calc(100vh - 80px);
+  background-color: #495E57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+.confirmed-card {
+  background: #ffffff;
+  padding: 40px 48px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px;
+}
+
+.confirmed-card h1 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.confirmed-card p {
+  color: #555;
+  font-size: 1.1rem;
 }
 
 /* --------------------- FOOTER ----------------------- */
