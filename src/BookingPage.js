@@ -3,12 +3,12 @@ import { useState, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
     const today = new Date();
     return fetchAPI(today);
 };
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
     if (action.type === "dateChange") {
         return fetchAPI(new Date(action.date));
     }
