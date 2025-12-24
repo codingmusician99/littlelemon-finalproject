@@ -92,16 +92,6 @@ main {
   font-size: 16px;
 }
 
-/*.bookingForm input:user-invalid,
-.bookingForm select:user-invalid {
-  border-color: #d9534f;
-}
-
-.bookingForm input:invalid:focus,
-.bookingForm select:invalid:focus {
-  border-color: #d9534f;
-}*/
-
 /* -------------------- SUBMIT BUTTON --------------------- */
 .bookingForm button {
   padding: 14px;
