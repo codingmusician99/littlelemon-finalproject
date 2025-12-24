@@ -113,8 +113,14 @@ main {
   font-size: 16px;
 }
 
-.bookingForm button:hover {
+.bookingForm button:hover:not(:disabled) {
   background: #e0bb0f;
+}
+
+.bookingForm button:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* --------------------- CONFIRMED PAGE -------------------- */

@@ -7,6 +7,13 @@ export default function BookingForm({bookings, setBookings, availableTimes, disp
     const [guests, setGuests] = useState("");
     const [occassion, setOccassion] = useState("");
 
+    const isFormValid =
+        date &&
+        time &&
+        guests >= 1 &&
+        guests <= 10 &&
+        occassion;
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -72,7 +79,7 @@ export default function BookingForm({bookings, setBookings, availableTimes, disp
                 <option value="Anniversary">Anniversary</option>
             </select>
 
-            <button type="submit">Reserve</button>
+            <button type="submit" disabled={!isFormValid}>Reserve</button>
 
             </form>
         </section>
