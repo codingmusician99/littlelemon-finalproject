@@ -79,7 +79,7 @@ export default function BookingForm({bookings, setBookings, availableTimes, disp
                 <option value="Anniversary">Anniversary</option>
             </select>
 
-            <button type="submit" disabled={!isFormValid}>Reserve</button>
+            <button type="submit" disabled={!isFormValid} aria-label="On Click">Reserve</button>
 
             </form>
         </section>
